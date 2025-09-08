@@ -4,7 +4,7 @@ let PasswordField = document.querySelector("passwdField")
 let ConfirmPasswordField = document.querySelector("confirmpasswdField")
 
 function registration(){
-   
+  
 }
 function logout(){
 
@@ -19,5 +19,5 @@ function updateProfile(){
     
 }
 function updatePassword(){
-    
+
 }
