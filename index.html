@@ -14,7 +14,7 @@
     <!--Layout-->
     <div class="container">
         <header>
-            <h1>Lépésszámláló app</h1>
+            <h1 id="title"></h1>
             <span id="themeswitch">
                 <i class="bi bi-sun-fill " id="lightmodeBtn"></i>
                 <i class="bi bi-moon-fill" id="darkmodeBtn"></i>
@@ -29,17 +29,13 @@
                   </button>
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Belépés</a>
+                        <a class="nav-link" href="#" onclick="render('login')">Belépés</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Regisztráció</a>
+                        <a class="nav-link" href="#" onclick="render('registration')">Regisztráció</a>
                       </li>
-                      
-                      
                     </ul>
-                    
                   </div>
                 </div>
             </nav>
@@ -48,8 +44,8 @@
             <!--Ide jön az aktuális tartalom-->
         </main>
         <footer>
-            <p>Bajai SZC - Türr István Technikum</p>
-            <p>13.a Szoftverfejlesztő</p>
+            <p id="Company"></p>
+            <p id="Author"></p>
             <p>2025.09.08</p>
         </footer>
 
@@ -60,5 +56,8 @@
    
     <script src="./bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
     <script src="./bootstrap-5.3.8-dist/js/app.js"></script>
+
+    <!--Controllers-->
+    <script src="./controllers/userCntrl.js"></script>
 </body>
 </html>
