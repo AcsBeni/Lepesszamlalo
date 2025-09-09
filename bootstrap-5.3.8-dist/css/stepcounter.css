@@ -26,3 +26,12 @@ footer{
 main{
     padding: 20px 0;
 }
+.alert {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+
+.fade-out {
+    opacity: 0;
+}
