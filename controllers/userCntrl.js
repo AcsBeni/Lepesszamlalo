@@ -47,6 +47,12 @@ async function registration(){
         const data = await res.json();
         //console.log(data)
         alert(data.msg);
+        if(res.status === 200){
+           Namefield.value = "";
+           Emailfield.value = "";
+           PasswordField.value = "";
+           ConfirmPasswordField.value = "";
+        }
     } 
     catch (error) {
         console.log('Error:', error);
