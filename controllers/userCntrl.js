@@ -33,7 +33,7 @@ async function registration(){
     }
     
     try {
-        const res = await fetch('http://localhost:3000/users', {
+        const res = await fetch(`${Server}/users`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -72,10 +72,63 @@ async function registration(){
     
   
 }
-function logout(){
-
+async function logout(){
+    sessionStorage.removeItem("loggeduser");
+    await getloggeduser();
+    
+    
 }
-function login(){
+async function login(){
+
+    let Emailfield = document.querySelector("#emailField")
+    let PasswordField = document.querySelector("#passwdField")
+    if(!Emailfield.value || !PasswordField.value){
+        alertkezeles("Minden mező kitöltése kötelező!", "alert-warning")
+        return;
+    }
+    if(!emailRegExp.test(Emailfield.value)){
+        alertkezeles("Érvénytelen email cím!", "alert-warning")
+        return;
+    }
+    let user = {};
+   
+    try {
+        const res = await fetch(`${Server}/users/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: Emailfield.value,
+                password: PasswordField.value
+            })
+        });
+        user = await res.json();
+        if(user.id){
+            loggeduser = user;
+        }
+        if(!loggeduser){
+            alertkezeles("Hibás email cím vagy jelszó!", "alert-danger")
+            return;
+            
+        }
+        if(!loggeduser){
+            alertkezeles("Hibás email cím vagy jelszó!", "alert-danger")
+            return;
+        }
+        
+    
+        sessionStorage.setItem("loggeduser", JSON.stringify(loggeduser));
+        Emailfield.value = "";
+        PasswordField.value = "";
+        await getloggeduser();
+        alertkezeles("Sikeres bejelentkezés!", "alert-success")
+        
+        
+    } catch (error) {
+        console.log('Error:', error);
+    }
+   
     
 }
 function getProfile(){
@@ -90,11 +143,11 @@ function updatePassword(){
 function alertkezeles(Adottszoveg, tipus){
     
     
-    
-    alertBox.classList.add(tipus);
+    alertBox.classList.remove("alert-danger","alert-warning","alert-success");
     alertBox.classList.remove("hide");
     alertBox.classList.remove("fade-out");
     alertBox.innerHTML = `${Adottszoveg}`;
+    alertBox.classList.add(tipus);
     setTimeout(() => {
         alertBox.classList.add("fade-out");
         setTimeout(() => {
