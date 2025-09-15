@@ -1,4 +1,4 @@
-let Stepsum = document.querySelector("#Stepscount");
+
 
 
 function setDate(){
@@ -7,4 +7,18 @@ function setDate(){
     let dateField = document.querySelector("#dateField")
     dateField.setAttribute("max", today)
     dateField.value = today;
+}
+
+
+function add(){
+    
+}
+function update(){
+
+}
+function del(){
+
+}
+function cancel(){
+    
 }
