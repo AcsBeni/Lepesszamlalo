@@ -60,6 +60,9 @@ async function render(view){
         case 'profile':
             getProfile();
             break;
+        case 'main':
+            setDate();
+            break;
     }
 }
 

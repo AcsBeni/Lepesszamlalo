@@ -153,7 +153,7 @@ async function updateProfile(){
     let profilename = document.querySelector("#NewNamefield")
     let profileemail = document.querySelector("#NewemailField")
     if(!profilename.value || !profileemail.value){
-        alertkezeles("Kérem töltse ki a fenti két mezőt!", "alert-warning")
+        alertkezeles("Kérem töltse ki a fenti mezőket!", "alert-warning")
         return;
     }
     if(!emailRegExp.test(profileemail.value)){

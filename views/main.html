@@ -2,3 +2,44 @@
 <hr>
 
 <div id="Messagebox"></div>
+
+<!--űrlap-->
+<div class="row">
+    <div class="form-floating mb-3 col-12 col-lg-6">
+        <input type="date" class="form-control" id="dateField" placeholder="Dátum">
+        <label for="Date">Dátum</label>
+    </div>
+    <div class="form-floating mb-3 col-12 col-lg-6">
+        <input type="number" min="0" class="form-control" id="stepsField" placeholder="Lépésszám">
+        <label for="Steps">Lépésszám</label>
+    </div>
+    <div class="form-floating mb-3 col-12 col-lg-6">
+        <button class="btn btn-primary " id="Addbtn" onclick="add()" >Hozzáadás</button>
+        <button class="btn btn-warning " id="Updatebtn" onclick="update()" >Módosítás</button>
+        <button class="btn btn-danger" id="Delbtn" onclick="del()">Törlés</button>
+        <button class="btn btn-secondary " id="Cancelbtn" onclick="cancel()" >Mégse</button>
+       
+    </div>
+    
+    
+</div>
+<!--táblázat-->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">#</th>
+            <th class="text-start" >Dátum</th>
+            <th class="text-end">Lépésszám</th>
+            <th class="text-end">Műveletek</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4" class="text-center">Összesen <span id="Stepscount">0</span> lépés</td>
+        </tr>
+    </tfoot>
+</table>
