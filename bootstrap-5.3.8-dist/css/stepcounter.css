@@ -38,3 +38,10 @@ main{
 .bold{
     font-weight: bold;
 }
+
+#chart{
+    max-width: 400%;
+    max-height: 200%;
+    margin: auto;
+    
+}

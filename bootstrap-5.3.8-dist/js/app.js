@@ -65,6 +65,9 @@ async function render(view){
             await getStepdates();
             Rendersteps();
             break;
+        case 'statistics':
+            initChart();
+            break;
     }
 }
 
