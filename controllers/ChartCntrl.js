@@ -1,26 +1,21 @@
 let chart = null;
+let labels = [];
+let data = [];
 
-const DATA_COUNT = 7;
-const NUMBER_CFG = {count: DATA_COUNT, min: -100, max: 100};
+async function getchartdata(){
+    //lekérdezzük az adatokat a szerverről
+    /*try {
+        let res = await fetch(`${Server}/steps/user/${loggeduser.id}`);
+        steps= await res.json();
+        steps = steps.sort((a,b) => new Date(b.date) - new Date(a.date));
+       
+        
+    } catch (error) {
+        
+        alertkezeles("Hiba történt az adatok lekérése során!", "alert-danger");
+    }*/
+}
 
-const labels = Utils.months({count: 7});
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: Utils.numbers(NUMBER_CFG),
-      borderColor: Utils.CHART_COLORS.red,
-      backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
-    },
-    {
-      label: 'Dataset 2',
-      data: Utils.numbers(NUMBER_CFG),
-      borderColor: Utils.CHART_COLORS.blue,
-      backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
-    }
-  ]
-};
 function initChart() {
     const ctx = document.getElementById('chart').getContext('2d');
     chart = new Chart(ctx, {
@@ -50,3 +45,4 @@ function initChart() {
     }
     );
 }
+
