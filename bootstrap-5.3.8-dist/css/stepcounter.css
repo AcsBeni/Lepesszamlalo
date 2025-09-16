@@ -15,7 +15,7 @@ footer{
 }
 
 .hide{
-    display: none;
+    display: none !important;
 }
 #themeswitch{
     position: absolute;
@@ -34,4 +34,7 @@ main{
 
 .fade-out {
     opacity: 0;
+}
+.bold{
+    font-weight: bold;
 }

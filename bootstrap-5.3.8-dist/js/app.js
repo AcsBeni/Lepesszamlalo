@@ -62,6 +62,8 @@ async function render(view){
             break;
         case 'main':
             setDate();
+            await getStepdates();
+            Rendersteps();
             break;
     }
 }
