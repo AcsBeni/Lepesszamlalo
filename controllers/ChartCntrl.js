@@ -1,19 +1,28 @@
 let chart = null;
 let labels = [];
-let data = [];
+let datas = [];
 
 async function getchartdata(){
-    //lekérdezzük az adatokat a szerverről
-    /*try {
-        let res = await fetch(`${Server}/steps/user/${loggeduser.id}`);
-        steps= await res.json();
-        steps = steps.sort((a,b) => new Date(b.date) - new Date(a.date));
+    
+    try {
+        const res = await fetch(`${Server}/steps/user/${loggeduser.id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const result = await res.json();
+        result.sort((a, b) => new Date(a.date) - new Date(b.date));
+        
+        labels = result.map(item => item.date);
+        datas = result.map(item => item.steps);
+
+        
        
-        
     } catch (error) {
-        
-        alertkezeles("Hiba történt az adatok lekérése során!", "alert-danger");
-    }*/
+        console.error('Error fetching chart data:', error);
+    }
+
 }
 
 function initChart() {
@@ -21,11 +30,11 @@ function initChart() {
     chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: [10, 20, 30, 40, 50, 60, 70],
+            labels: labels,
             datasets: [{
             label: 'My First dataset',
-            
-            data: [0, 10, 5, 2, 20, 30, 45],
+
+            data: datas,
             }]
             
         },
