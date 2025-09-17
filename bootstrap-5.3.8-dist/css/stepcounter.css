@@ -45,3 +45,10 @@ main{
     margin: auto;
     
 }
+@media screen and (max-width: 800px) {
+    #chart{
+        height: 500px;
+        width: 50%;
+    }
+    
+}

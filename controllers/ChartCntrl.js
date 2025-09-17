@@ -30,28 +30,33 @@ function initChart() {
     chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: labels,
-            datasets: [{
-            label: 'My First dataset',
+          labels: labels,
+          datasets: [{
+          label: 'My First dataset',
 
-            data: datas,
-            }]
+          data: datas,
+          }]
             
         },
-         options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Lépésszámok'
-      }
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Lépésszámok'
+            }
 
-    }
-    }
-    }
+          },  
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+        }
+      }
     );
 }
 
